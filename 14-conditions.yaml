@@ -5,11 +5,11 @@
    NUMBER: 70
   tasks:
     - name: "Print if the number is less than or equal to 100"
-      ansible.buildin.debug:
+      ansible.builtin.debug:
         msg: "Number {{ NUMBER }} is less than or equal to 100"
       when: NUMBER < 100
 
     - name: "Print if the number is greater than 100"
-      ansible.buildin.debug:
+      ansible.builtin.debug:
         msg: "Number {{ NUMBER }} is greater than 100"
       when: NUMBER > 100
