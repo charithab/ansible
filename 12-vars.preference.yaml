@@ -10,7 +10,7 @@
     prompt: Please enter your Greeting
     private: false
   tasks:
-  - name: Greetings
+  - name: print the greeting
     vars:
     GREETING: "Hello from Task"
     ansible.buildin.debug:
