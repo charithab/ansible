@@ -1,0 +1,15 @@
+- name: variables
+  hosts: local
+  connection: local
+  vars:
+    COURSE: ansible # equal to COURSE=ansible in shell, shell will refer $COURSE or ${COURSE}
+    DURATION: 10HR
+    STUDENT: Charitha
+  tasks:
+  - name: Print task information
+    ansible.builtin.debug:
+      msg: "Hello {{ COURSE }}, course duration is {{ DURATION }}, Student is {{ STUDENT }}"
+
+  - name: Print task information AGAIN 
+    ansible.builtin.debug:
+      msg: "Hello {{ COURSE }}, course duration is {{ DURATION }}, Student is {{ STUDENT }}"

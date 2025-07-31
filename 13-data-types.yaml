@@ -1,0 +1,18 @@
+- name: ansible datatypes
+  hosts: local
+  connection: local
+  vars:
+  COURSE: "DevSecOps with AWS"  # String
+  DURATION: 10 # This is number
+  IS_LIVE: true  # boolean
+  TOOLS: # [] lists
+  - Linux
+  - Shell
+  - Ansible 
+  CONCEPTS:  # {} map or dictionary or object
+    CI: Jenkins
+    SCRIPTING: "Shell, Ansible, Terraform, Python"
+  tasks:
+  - name: Course Info
+    ansible.buildin.debug:
+      msg: "Course is {{ COURSE }}, Duration: {{ DURATION }}, IS LIVE?: {{ IS_LIVE }}, Tools are: {{ TOOLS }} and concepts are {{ CONCEPTS }}"
