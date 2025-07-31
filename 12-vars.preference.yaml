@@ -1,8 +1,8 @@
 - name: understand var preferences
   hosts: local
   connection: local
-  vars:
-    GREETING: "Hello from Play"
+  # vars:
+  #   GREETING: "Hello from Play"
   # vars_files:
   # - course.yaml
   # vars_prompt:
@@ -20,3 +20,4 @@
 # Hello From Task (comment after output)
 # Hello from File (same comment after output)
 # Hello from Prompt (same here also comment after output)
+# Hello from Play
