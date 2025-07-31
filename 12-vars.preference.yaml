@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-  GREETING: "Hello from Play"
+    GREETING: "Hello from Play"
   vars_files:
   - course.yaml
   vars_prompt:
