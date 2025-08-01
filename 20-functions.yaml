@@ -9,7 +9,7 @@
       msg: "Hello, {{ person | default('Charitha') }}" # If person value is not defined then it takes default value
 
   - name: print names
-    ansible.builtin.split:
+    ansible.builtin.debug:
       msg: "{{ persons | split(',') }}"
 
   - name: convert map into list
