@@ -4,7 +4,7 @@
   - name: redirect ls output to a file using command 
   # ansible.builtin.command: "ls -ltr > /tmp/output.txt" # Error
     ansible.builtin.command: "ls -ltr" # no error
-    reister: command_result
+    register: command_result
   
   - name: redirect ls output to a file using shell
     ansible.builtin.shell: "ls -ltr > /tmp/output.txt" # no error
