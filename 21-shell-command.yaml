@@ -8,7 +8,7 @@
   
   - name: print the outcome
     ansible.builtin.debug:
-    msg: "{{ command_result }}"  # command result status will be displayed here
+      msg: "{{ command_result }}"  # command result status will be displayed here
   
   - name: redirect ls output to a file using shell
     ansible.builtin.shell: "ls -ltr > /tmp/output.txt" # no error
@@ -16,4 +16,4 @@
   
   - name: print the outcome
     ansible.builtin.debug:
-    msg: "{{ shell_result }}" # the output stored in shell result is success or failed can be displayed here (resultcode(rc):0 is success and rc:1 is fail)
+      msg: "{{ shell_result }}" # the output stored in shell result is success or failed can be displayed here (resultcode(rc):0 is success and rc:1 is fail)
