@@ -1,0 +1,57 @@
+- name: ansible functions
+  hosts: local
+  connection: local
+  vars:
+    persons: Charitha, Gnaneshwar, Meghana
+  tasks:
+  - name: check undefined variable
+    ansible.builtin.debug:
+      msg: "Hello, {{ person | default('Charitha') }}" # If person value is not defined then it takes default value
+
+  - name: print names
+    ansible.builtin.split:
+      msg: "{{ persons | split(',') }}"
+
+  - name: convert map into list
+    vars:
+      course:
+        name: ansible
+        duration: 10HR
+        student: Charitha
+    ansible.builtin.debug:
+      msg: "{{ course | dict2items }}"
+  
+  - name: convert list to map
+    vars:
+      course:
+      - {'key': 'name', 'value': 'ansible'}
+      - {'key': 'duration', 'value': '10HR'}
+      - {'key': 'student', 'value': 'charitha'}
+    ansible.builtin.debug:
+      msg: "{{ course | items2dict }}"
+  
+  - name: convert to uppercase
+    vars: 
+      name: "charitha"
+    ansible.builtin.debug:
+      msg: "{{ name | upper }}"
+
+  - name: convert to lowercase
+    vars: 
+      name: "CHARITHA"
+    ansible.builtin.debug:
+      msg: "{{ name | lower }}"
+
+  - name: check whether ip address is valid or not
+    vars:
+      ip: "300.567.980.789"
+      ansible.builtin.debug:
+        msg: "is {{ ip | ansible.utils.ipaddr }}" # output: false
+
+  - name: check whether ip address is valid or not
+    vars:
+      ip: "192.168.1.1"
+      ansible.builtin.debug:
+        msg: "is {{ ip | ansible.utils.ipaddr }}" # output: 192.168.1.1
+  
+  
