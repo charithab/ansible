@@ -1,0 +1,18 @@
+plugin: amazon.aws.aws_ec2
+regions:
+- us-east-1
+filters:
+  tag:Name: frontend   # instance name is frontend
+  instance-state-name: running  #instance should be in running state.
+hostnames:
+  - private-ip-address
+# keyed_groups:
+# - key: tags.Name  # this will return @frontend
+#   prefix: ""
+#   seperator: ""
+keyed_groups:
+- key: tags.Name  # this will return @dynamic_frontend
+  prefix: "dynamic"
+  seperator: "_"  # this wont consider hypen(-). It will take underscore even if we give hypen.
+compose:
+  ansible_host: private_ip_address

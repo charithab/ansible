@@ -1,0 +1,16 @@
+- name: install nginx
+  hosts: dynamic_frontend  # this will go to inventory.aws_ec2.yaml and get the instances and connect to 8 services(ansible.cfg)
+  become: yes
+  serial: 5 # this playbook will be executed for 5 servers, then again it will be executed for the next 5 servers and so on..
+  tasks:
+  - name: install nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: installed
+  
+  - name: run nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+
